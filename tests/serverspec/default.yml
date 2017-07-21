@@ -2,4 +2,6 @@
   roles:
     - ansible-role-vim
   vars:
-    vim_config: ""
+    # XXX FreeBSD does not have _small_, and vim-related packages. to be tested
+    # by other platforms
+    vim_additional_packages: []

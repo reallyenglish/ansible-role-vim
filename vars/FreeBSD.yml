@@ -1,2 +1,1 @@
-__vim_db_dir: /var/db/vim
-__vim_conf_dir: /usr/local/etc/vim
+__vim_package: vim-lite

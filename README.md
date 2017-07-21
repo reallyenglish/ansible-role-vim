@@ -1,6 +1,6 @@
 # ansible-role-vim
 
-A brief description of the role goes here.
+Install `vim`
 
 # Requirements
 
@@ -8,9 +8,17 @@ None
 
 # Role Variables
 
-| variable | description | default |
+| Variable | Description | Default |
 |----------|-------------|---------|
+| `vim_package` | | `{{ __vim_package }}` |
+| `vim_additional_packages` | | `[]` |
 
+
+## FreeBSD
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim-lite` |
 
 # Dependencies
 
@@ -19,6 +27,11 @@ None
 # Example Playbook
 
 ```yaml
+- hosts: localhost
+  roles:
+    - ansible-role-vim
+  vars:
+    vim_additional_packages: []
 ```
 
 # License

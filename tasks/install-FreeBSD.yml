@@ -2,5 +2,11 @@
 
 - name: Install vim
   pkgng:
-    name: vim
+    name: "{{ vim_package }}"
     state: present
+
+- name: Install vim_additional_package
+  pkgng:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ vim_additional_packages }}"
