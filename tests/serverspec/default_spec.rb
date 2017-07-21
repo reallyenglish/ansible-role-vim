@@ -4,6 +4,11 @@ require "serverspec"
 package = "vim"
 additional_packages = []
 
+case os[:family]
+when "freebsd"
+  package = "vim-lite"
+end
+
 describe package(package) do
   it { should be_installed }
 end
