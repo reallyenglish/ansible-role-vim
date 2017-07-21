@@ -1,0 +1,8 @@
+vim_user: vim
+vim_group: vim
+vim_log_dir: /var/log/vim
+vim_db_dir: "{{ __vim_db_dir }}"
+vim_service: vim
+vim_conf_dir: "{{ __vim_conf_dir }}"
+vim_conf_file: "{{ __vim_conf_dir }}/vim.conf"
+vim_flags: ""

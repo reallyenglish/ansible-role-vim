@@ -1,0 +1,6 @@
+---
+
+- name: Restart vim
+  service:
+    name: vim
+    state: restarted
