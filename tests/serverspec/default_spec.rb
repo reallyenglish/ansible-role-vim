@@ -15,6 +15,7 @@ when "openbsd"
   additional_packages = ["vim-spell-uk"]
 when "freebsd"
   package = "vim-lite"
+  additional_packages = ["shells/tcshrc"]
 end
 
 describe package(package) do

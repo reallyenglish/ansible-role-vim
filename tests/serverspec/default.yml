@@ -2,6 +2,6 @@
   roles:
     - ansible-role-vim
   vars:
-    # XXX FreeBSD does not have _small_, and vim-related packages. to be tested
-    # by other platforms
-    vim_additional_packages: "{% if ansible_os_family == 'OpenBSD' %}[ 'vim-spell-uk' ]{% elif ansible_os_family == 'Debian' %}[ 'vim-scripts' ]{% elif ansible_os_family == 'RedHat' %}[ 'protobuf-vim' ]{% else %}[]{% endif %}"
+    # XXX shells/tcshrc is NOT related to vim at all but is included in
+    # vim_additional_packages just for testing purpose
+    vim_additional_packages: "{% if ansible_os_family == 'OpenBSD' %}[ 'vim-spell-uk' ]{% elif ansible_os_family == 'Debian' %}[ 'vim-scripts' ]{% elif ansible_os_family == 'RedHat' %}[ 'protobuf-vim' ]{% elif ansible_os_family == 'FreeBSD' %}[ 'shells/tcshrc' ]{% else %}[]{% endif %}"
