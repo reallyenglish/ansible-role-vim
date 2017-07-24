@@ -13,12 +13,29 @@ None
 | `vim_package` | | `{{ __vim_package }}` |
 | `vim_additional_packages` | | `[]` |
 
+## Debian
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim-nox` |
 
 ## FreeBSD
 
 | Variable | Default |
 |----------|---------|
 | `__vim_package` | `vim-lite` |
+
+## OpenBSD
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim--no_x11` |
+
+## RedHat
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim-minimal` |
 
 # Dependencies
 
@@ -31,7 +48,9 @@ None
   roles:
     - ansible-role-vim
   vars:
-    vim_additional_packages: []
+    # XXX FreeBSD does not have _small_, and vim-related packages. to be tested
+    # by other platforms
+    vim_additional_packages: "{% if ansible_os_family == 'OpenBSD' %}[ 'vim-spell-uk' ]{% elif ansible_os_family == 'Debian' %}[ 'vim-scripts' ]{% elif ansible_os_family == 'RedHat' %}[ 'protobuf-vim' ]{% else %}[]{% endif %}"
 ```
 
 # License
