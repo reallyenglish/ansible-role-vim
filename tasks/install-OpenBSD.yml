@@ -1,0 +1,12 @@
+---
+
+- name: Install vim
+  openbsd_pkg:
+    name: "{{ vim_package }}"
+    state: present
+
+- name: Install vim_additional_package
+  openbsd_pkg:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ vim_additional_packages }}"

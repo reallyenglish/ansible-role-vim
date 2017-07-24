@@ -13,12 +13,29 @@ None
 | `vim_package` | | `{{ __vim_package }}` |
 | `vim_additional_packages` | | `[]` |
 
+## Debian
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim-nox` |
 
 ## FreeBSD
 
 | Variable | Default |
 |----------|---------|
 | `__vim_package` | `vim-lite` |
+
+## OpenBSD
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim--no_x11` |
+
+## RedHat
+
+| Variable | Default |
+|----------|---------|
+| `__vim_package` | `vim-minimal` |
 
 # Dependencies
 
@@ -31,7 +48,9 @@ None
   roles:
     - ansible-role-vim
   vars:
-    vim_additional_packages: []
+    # XXX shells/tcshrc is NOT related to vim at all but is included in
+    # vim_additional_packages just for testing purpose
+    vim_additional_packages: "{% if ansible_os_family == 'OpenBSD' %}[ 'vim-spell-uk' ]{% elif ansible_os_family == 'Debian' %}[ 'vim-scripts' ]{% elif ansible_os_family == 'RedHat' %}[ 'protobuf-vim' ]{% elif ansible_os_family == 'FreeBSD' %}[ 'shells/tcshrc' ]{% else %}[]{% endif %}"
 ```
 
 # License
