@@ -1,6 +1,6 @@
 # ansible-role-vim
 
-Install `vim` editor
+Install `vim`
 
 # Requirements
 
